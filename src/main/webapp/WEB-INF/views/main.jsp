@@ -10,9 +10,12 @@
 
 <body>
     <div class='col-md-12'><!--상단바-->
-        <p class="bg-primary" style="margin 0% 0% 0% 0%;"><B>CAMPUSBOOK</B></p>
+        <p class="bg-primary" style="margin 0% 0% 0% 0%;"><B>CAMPUSBOOK
+            <%=session.getAttribute("username") %></B></p>
+            <br>
+            <%=session.getAttribute("id") %>
     </div>
-    
+        
     <div class='col-md-12'>
         <div class='col-md-3'>
             <div class="row">

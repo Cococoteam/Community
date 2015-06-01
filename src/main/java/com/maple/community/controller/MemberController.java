@@ -1,6 +1,7 @@
 package com.maple.community.controller;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,11 +17,11 @@ import com.maple.community.service.MemberServiceImpl;
  * Handles requests for the application home page.
  */
 @Controller
-public class IndexController {
+public class MemberController {
 	@Autowired
 	private MemberServiceImpl memberservice;
 	private static final Logger logger = LoggerFactory
-			.getLogger(IndexController.class);
+			.getLogger(MemberController.class);
 
 	/**
 	 * Simply selects the home view to render by returning its name.
@@ -47,13 +48,15 @@ public class IndexController {
 
 	//TODO 세션으로 메인페이지 접근하는법 알아보기
 	@RequestMapping("/login")
-	public ModelAndView login(MemberModel model) {
+	public ModelAndView login(MemberModel model, HttpSession session) {
 		
 		//loginResult id,passwd 해당되는 값이 존재하면 mav result 값에 true 넣어 전달
 		ModelAndView mav = new ModelAndView("loginResult");
 		model = memberservice.login(model);
 		if(model != null){
 			mav.addObject("result", true);
+			session.setAttribute("username", model.getName());
+			session.setAttribute("id",model.getId());
 		}
 		else{
 			mav.addObject("result", false);
