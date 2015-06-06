@@ -1,6 +1,7 @@
 package com.maple.community.service;
 
 import com.maple.community.model.MemberModel;
+import com.maple.community.model.SubjectModel;
 
 public interface MemberService {
 	
@@ -8,4 +9,5 @@ public interface MemberService {
 	public int selectMemberById(String id);
 	public MemberModel login(MemberModel model);
 	public void updateMember(MemberModel model);
+	public void insertCourse(SubjectModel model);
 }

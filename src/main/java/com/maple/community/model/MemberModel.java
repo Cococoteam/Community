@@ -12,7 +12,14 @@ public class MemberModel {
 	private String phone;
 	private String sex;
 	private String birth;
+	private String major;
 	
+	public String getMajor() {
+		return major;
+	}
+	public void setMajor(String major) {
+		this.major = major;
+	}
 	public String getEmail() {
 		return email;
 	}

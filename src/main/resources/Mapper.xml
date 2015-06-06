@@ -25,7 +25,13 @@
   
   <update id="updateMember" parameterType="member">
     UPDATE members
-    SET email = #{email}, phone = #{phone}, birth = #{birth}, sex = #{sex}
+    SET email = #{email}, phone = #{phone}, birth = #{birth}, sex = #{sex}, image= #{image}, major = #{major}
     WHERE id = #{id}
   </update>
+  
+  <insert id="insertCourse" parameterType="subject">
+    INSERT INTO 
+    COURSE(id, subnum)
+    VALUES(#{id},#{subnum_origin})
+  </insert> 
 </mapper>
