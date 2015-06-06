@@ -62,7 +62,7 @@
          </ul>
       </div>
       <div class='col-md-9'> <!--고정틀말고-->
-      <form>
+      <form action = "/search_Friend" method ="post">
          <div class="panel panel-default" style='margin: 10px 0px 0px 0px;'>
             <div class="panel-heading">인천대학교 친구들을 찾아줍니다!</div>
                <div class="panel-body" style='height:100%;'>
@@ -73,19 +73,19 @@
                            <div class="panel-body">
                               <div class="radio" style='margin: 10px 0px 0px 0px;'>
                                  <label>
-                                 <input type="radio" name="gender" id="optionsRadios1" value="option1" checked>
+                                 <input type="radio" name="sex" id="optionsRadios1" value="남자" checked>
                                  남자
                                  </label>
                               </div>
                               <div class="radio" style='margin: 10px 0px 0px 0px;'>
                                  <label>
-                                 <input type="radio" name="gender" id="optionsRadios2" value="option2">
+                                 <input type="radio" name="sex" id="optionsRadios2" value="여자">
                                     여자
                                  </label>
                               </div>
                               <div class="radio" style='margin: 10px 0px 0px 0px;'>
                                  <label>
-                                 <input type="radio" name="gender" id="optionsRadios2" value="option2">
+                                 <input type="radio" name="sex" id="optionsRadios2" value="남자 여자">
                                  무관
                                  </label>
                               </div>
@@ -94,21 +94,21 @@
                         <div class="panel panel-default">
                            <div class="panel-heading">학과</div>
                            <div class="panel-body">
-                              <div class="radio" style='margin: 10px 0px 0px 0px;'>
+                              <div class="checkbox" style='margin: 10px 0px 0px 0px;'>
                                  <label>
-                                 <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-                                 같은 과
+                                 <input type="checkbox" name="major" id="optionsRadios1" value="같은과" checked>
+                                컴퓨터공학과
                                  </label>
                               </div>
-                              <div class="radio" style='margin: 10px 0px 0px 0px;'>
+                              <div class="checkbox" style='margin: 10px 0px 0px 0px;'>
                                  <label>
-                                 <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-                                 같은 과 제외
+                                 <input type="checkbox" name="major" id="optionsRadios2" value="제외">
+                                정봉통신학과
                                  </label>
                               </div>
-                              <div class="radio" style='margin: 10px 0px 0px 0px;'>
+                              <div class="checkbox" style='margin: 10px 0px 0px 0px;'>
                                  <label>
-                                 <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+                                 <input type="checkbox" name="major" id="optionsRadios2" value="무관">
                                  무관
                                  </label>
                               </div>
@@ -119,31 +119,31 @@
                            <div class="panel-body">
                               <div class="checkbox" style='margin: 10px 0px 0px 0px;'>
                                  <label>
-                                 <input type="checkbox" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+                                 <input type="checkbox" name="subject" id="optionsRadios1" value="1" checked>
                                  A
                                  </label>
                               </div>
                               <div class="checkbox" style='margin: 10px 0px 0px 0px;'>
                                  <label>
-                                 <input type="checkbox" name="optionsRadios" id="optionsRadios2" value="option2">
+                                 <input type="checkbox" name="subject" id="optionsRadios2" value="2">
                                  B
                                  </label>
                               </div>
                               <div class="checkbox" style='margin: 10px 0px 0px 0px;'>
                                  <label>
-                                 <input type="checkbox" name="optionsRadios" id="optionsRadios2" value="option2">
+                                 <input type="checkbox" name="subject" id="optionsRadios2" value="3">
                                  C
                                  </label>
                               </div>
                               <div class="checkbox" style='margin: 10px 0px 0px 0px;'>
                                  <label>
-                                 <input type="checkbox" name="optionsRadios" id="optionsRadios2" value="option2">
+                                 <input type="checkbox" name="subject" id="optionsRadios2" value="4">
                                  D
                                  </label>
                               </div>
                            </div>
                         </div>
-                        <button type="button" class="btn btn-primary" style='width:100%; margin: 2px 0px 0px 0px;'>찾기</button>
+                        <button type="submit" class="btn btn-primary" style='width:100%; margin: 2px 0px 0px 0px;'>찾기</button>
                      </div>
                      <div class='col-md-8'>
                         <div class="panel panel-default" style='margin:0% 0% 0% 0%; height:100%;'>

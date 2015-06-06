@@ -1,8 +1,8 @@
 package com.maple.community.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
@@ -14,6 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartRequest;
 
 import com.maple.community.model.MemberModel;
+import com.maple.community.model.SearchModel;
 import com.maple.community.model.SubjectModel;
 import com.maple.community.service.MemberServiceImpl;
 
@@ -24,8 +25,22 @@ public class MainController {
 	private MemberServiceImpl MemberService; 
 	
 	@RequestMapping("/search")
-	public String search(){
+	public String search(SearchModel model, HttpSession session){
 		return "search";
+	}
+	
+	@RequestMapping("/search_Friend")
+	public String search_Friend(SearchModel model){
+		System.out.println("설정한 sex = " + model.getSex());
+		System.out.println("설정한 major = " + model.getMajor());
+		for(String subject : model.getSubject())
+			System.out.println("설정한 subject = " + subject);
+		
+		
+		List<String> result =MemberService.searchFriend(model);
+		for(String result1 : result)
+			System.out.println(result1);
+		return "profile";
 	}
 	
 	@RequestMapping("/profile")

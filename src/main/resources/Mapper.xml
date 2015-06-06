@@ -33,5 +33,11 @@
     INSERT INTO 
     COURSE(id, subnum)
     VALUES(#{id},#{subnum_origin})
-  </insert> 
+  </insert>
+  
+  <select id="searchFriend" resultType="String" parameterType="search">
+    SELECT id 
+    FROM members
+    WHERE sex=#{sex}
+  </select>
 </mapper>

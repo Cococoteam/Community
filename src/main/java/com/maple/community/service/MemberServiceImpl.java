@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.maple.community.dao.MemberDao;
 import com.maple.community.model.MemberModel;
+import com.maple.community.model.SearchModel;
 import com.maple.community.model.SubjectModel;
 
 
@@ -49,6 +50,10 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public void insertCourse(SubjectModel model) {
 		memberdao.insertCourse(model);
-		
+	}
+
+	@Override
+	public List<String> searchFriend(SearchModel model) {
+		return memberdao.searchFriend(model);
 	}
 }
