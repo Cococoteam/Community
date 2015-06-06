@@ -3,9 +3,16 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; utf-8">
+    <meta http-equiv="Content-Type" content="text/html"; charset="utf-8">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link href='./stylesheets/style.css' rel='stylesheet' >
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <!-- jQuery -->
+    <script src="/resources/js/jquery/jquery.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/resources/js/bootstrap.min.js"></script>
+    <script src="/resources/js/common.js"></script>
 </head>
 
 <body>
@@ -41,10 +48,10 @@
                                         <li role="presentation"><a role="menuitem" tabindex="-1" href="#">D</a></li>
                                     </ul>
                                  </li></center>
-                                <li role="presentation" class="active" style='margin:20px 0px 0px 0px;'><a href="/search"><center>친 구  찾 기</center></a></li>
+                                <li role="presentation" style='margin:20px 0px 0px 0px;'><a href="/search"><center>친 구  찾 기</center></a></li>
                                 <center><li role="presentation" style='margin:20px 0px 0px 0px;'><a href="#">친 구  요 청</a></li></center>
                                 <center><li role="presentation" style='margin:20px 0px 0px 0px;'><a href="#">메 세 지</a></li></center>
-                                <li role="presentation" style='margin:20px 0px 0px 0px;' ><a href="#" data-toggle="modal" data-target="#myModal"><center>환 경 설 정</center></a></li>
+                                <li role="presentation" style='margin:20px 0px 0px 0px;' ><a herf="#" data-toggle="modal" data-target="#myModal"><center>환 경 설 정</center></a></li>
                             </ul>
                         </div>
                     </div>
@@ -53,7 +60,7 @@
         </div>
         <div class='col-md-9'>
             <ul class="nav nav-tabs nav-justified">
-                <li role="presentation" class="active"><a href="/search"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a></li>
+                <li role="presentation" ><a href="/search"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a></li>
                 <li role="presentation" ><a href="#"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a></li>
                 <li role="presentation" ><a href="#"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span></a></li>
                 <li role="presentation" ><a href="/profile"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a></li>
@@ -154,24 +161,26 @@
             </div>          
         </div>
     </div>
-<div class="modal fade" id="myModal">
+
+</body>
+<script>
+</script>
+</html>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Modal title</h4>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
       </div>
       <div class="modal-body">
-        <p>One fine body&hellip;</p>
+        ...
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         <button type="button" class="btn btn-primary">Save changes</button>
       </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-</body>
-<script>
-</script>
-</html>
+    </div>
+  </div>
+</div>

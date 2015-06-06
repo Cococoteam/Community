@@ -42,5 +42,10 @@ public class MemberDaoImpl implements MemberDao{
 		return sqlSession.selectOne(NAMESPACE+"selectMember", model);
 	}
 
+	@Override
+	public void updateMember(MemberModel model) {
+		sqlSession.update(NAMESPACE+"updateMember", model);
+	}
+
 
 }

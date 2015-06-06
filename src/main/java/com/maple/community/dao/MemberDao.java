@@ -8,4 +8,5 @@ public interface MemberDao {
 	public int selectMemberById(MemberModel model);
 	public int selectMemberById(String id);
 	public MemberModel selectMember(MemberModel model);
+	public void updateMember(MemberModel model);
 }

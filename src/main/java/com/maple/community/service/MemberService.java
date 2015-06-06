@@ -7,4 +7,5 @@ public interface MemberService {
 	public boolean join(MemberModel model);
 	public int selectMemberById(String id);
 	public MemberModel login(MemberModel model);
+	public void updateMember(MemberModel model);
 }

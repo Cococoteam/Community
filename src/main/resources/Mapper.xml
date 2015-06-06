@@ -22,4 +22,10 @@
     WHERE id = #{id}
     AND passwd = #{passwd}
   </select>
+  
+  <update id="updateMember" parameterType="member">
+    UPDATE members
+    SET email = #{email}, phone = #{phone}, birth = #{birth}, sex = #{sex}
+    WHERE id = #{id}
+  </update>
 </mapper>

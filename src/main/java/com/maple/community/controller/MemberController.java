@@ -87,4 +87,6 @@ public class MemberController {
 			return "joinFail";
 		}
 	}
+	
+	
 }

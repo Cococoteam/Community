@@ -38,6 +38,12 @@ public class MemberServiceImpl implements MemberService {
 	public MemberModel login(MemberModel model) {
 		return memberdao.selectMember(model);
 	}
+
+	//profile update
+	@Override
+	public void updateMember(MemberModel model) {
+		memberdao.updateMember(model);
+	}
 	
 	
 	
