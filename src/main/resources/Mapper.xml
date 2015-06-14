@@ -34,4 +34,11 @@
     COURSE(id, subnum)
     VALUES(#{id},#{subnum_origin})
   </insert> 
+  
+  <select id="selectSubject" resultType="subject" parameterType="String">
+    SELECT c.id, s.subject 
+    FROM course c, subject s 
+    WHERE c.subnum = s.subnum and c.id='#{root}
+  
+  </select>
 </mapper>

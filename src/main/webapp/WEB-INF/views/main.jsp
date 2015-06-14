@@ -7,7 +7,7 @@
    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-   <link href='./stylesheets/style.css' rel='stylesheet' >
+   <script src="/resources/js/common.js" ></script>
 </head>
 
 <body>
@@ -23,7 +23,7 @@
                         <div class="caption">
                         <div class='col-md-12'>
                             <div class='col-md-7'>
-                                <img src='/resources/inuimg.jpg' style='width:100%; height:120px; margin:0px 0px 0px -20px;'>
+                                <img src='<%=session.getAttribute("img") %>' style='width:100%; height:120px; margin:0px 0px 0px -20px;'>
                             </div>
                             <div class='col-md-5' style='margin:0px 0px 0px -20px;'>
                                 </br></br></br>
@@ -33,14 +33,14 @@
                             <ul class="nav nav-pills nav-stacked" >
                                 <center><li role="presentation" style='margin: 40px 0px 0px 0px;'><a href="#">시 간 표</a></li></center>
                                 <center><li role="presentation" class="dropdown" style='margin:20px 0px 0px 0px;'>
-                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" id="search_subject">
                                       게 시 판 <span class="caret"></span>
                                     </a>
-                                    <ul class="dropdown-menu" role="menu">
-                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">A</a></li>
+                                    <ul class="dropdown-menu" role="menu" id="subjectArea">
+                                        <!-- <li role="presentation"><a role="menuitem" tabindex="-1" href="#">A</a></li>
                                         <li role="presentation"><a role="menuitem" tabindex="-1" href="#">B</a></li>
                                         <li role="presentation"><a role="menuitem" tabindex="-1" href="#">C</a></li>
-                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">D</a></li>
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">D</a></li> -->
                                     </ul>
                                  </li></center>
                                 <center><li role="presentation" style='margin:20px 0px 0px 0px;'><a href="/search">친 구  찾 기</a></li></center>

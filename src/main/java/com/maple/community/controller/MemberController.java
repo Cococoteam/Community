@@ -57,6 +57,8 @@ public class MemberController {
 			mav.addObject("result", true);
 			session.setAttribute("username", model.getName());
 			session.setAttribute("id",model.getId());
+			if(model.getImage() != null)
+				session.setAttribute("img", model.getImage());
 		}
 		else{
 			mav.addObject("result", false);

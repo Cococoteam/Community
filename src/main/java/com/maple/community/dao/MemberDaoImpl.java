@@ -5,7 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.maple.community.model.MemberModel;
-import com.maple.community.model.SubjectModel;
 //DAO(Data Access Object)
 //데이터베이스와 연동해서 데이터를 가져오거나 입력수정
 //component-scan 자동 자바빈즈 생성(Repository)
@@ -45,10 +44,7 @@ public class MemberDaoImpl implements MemberDao{
 	public void updateMember(MemberModel model) {
 		sqlSession.update(NAMESPACE+"updateMember", model);
 	}
+	
 
-	@Override
-	public void insertCourse(SubjectModel model) {
-		sqlSession.insert(NAMESPACE+"insertCourse", model);
-		
-	}
+
 }

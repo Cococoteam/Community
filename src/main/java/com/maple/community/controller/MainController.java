@@ -1,8 +1,8 @@
 package com.maple.community.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
@@ -16,12 +16,16 @@ import org.springframework.web.multipart.MultipartRequest;
 import com.maple.community.model.MemberModel;
 import com.maple.community.model.SubjectModel;
 import com.maple.community.service.MemberServiceImpl;
+import com.maple.community.service.SubjectServiceImpl;
 
 @Controller
 public class MainController {
 	
 	@Autowired
 	private MemberServiceImpl MemberService; 
+	
+	@Autowired
+	private SubjectServiceImpl SubjectService;
 	
 	@RequestMapping("/search")
 	public String search(){
@@ -53,15 +57,23 @@ public class MainController {
 		  model.setImage(imagePath);
 		  MemberService.updateMember(model);
 		  
-		  System.out.println(imagePath);
-		  System.out.println(model2.getId());
-		  System.out.println(model.getId());
+//		  System.out.println(imagePath);
+//		  System.out.println(model2.getId());
+//		  System.out.println(model.getId());
 		  
 		  //TODO insert 전에 모든 자료 삭제 하기
 		  for(int i: model2.getSubnum()){
 			  model2.setSubnum_origin(i);
-			  MemberService.insertCourse(model2);
+			  SubjectService.insertCourse(model2);
 		  }
 		  return "modify";
+	}
+	
+	@RequestMapping("/search_subject")
+	public String search_subject(Model model, HttpSession session){
+		String id = (String) session.getAttribute("id");
+		List<SubjectModel> subject_List = SubjectService.selectSubject(id);
+		model.addAttribute("subject_List", subject_List);
+		return "search_subject";
 	}
 }
