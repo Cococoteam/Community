@@ -1,13 +1,14 @@
 package com.maple.community.service;
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.maple.community.dao.MemberDao;
 import com.maple.community.model.MemberModel;
+<<<<<<< HEAD
 import com.maple.community.model.SearchModel;
 import com.maple.community.model.SubjectModel;
+=======
+>>>>>>> 1e25e58c74cb55bbce57cfd5f503f2b04a3b150e
 
 
 @Service
@@ -47,6 +48,7 @@ public class MemberServiceImpl implements MemberService {
 		memberdao.updateMember(model);
 	}
 
+<<<<<<< HEAD
 	@Override
 	public void insertCourse(SubjectModel model) {
 		memberdao.insertCourse(model);
@@ -56,4 +58,7 @@ public class MemberServiceImpl implements MemberService {
 	public List<String> searchFriend(SearchModel model) {
 		return memberdao.searchFriend(model);
 	}
+=======
+	
+>>>>>>> 1e25e58c74cb55bbce57cfd5f503f2b04a3b150e
 }
