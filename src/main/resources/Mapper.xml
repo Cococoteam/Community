@@ -33,11 +33,21 @@
     INSERT INTO 
     COURSE(id, subnum)
     VALUES(#{id},#{subnum_origin})
+<<<<<<< HEAD
   </insert>
   
   <select id="searchFriend" resultType="String" parameterType="search">
     SELECT id 
     FROM members
     WHERE sex=#{sex}
+=======
+  </insert> 
+  
+  <select id="selectSubject" resultType="subject_board" parameterType="String">
+    SELECT c.id, s.subject ,s.subnum
+    FROM course c, subject s 
+    WHERE c.subnum = s.subnum and c.id=#{id}
+  
+>>>>>>> 1e25e58c74cb55bbce57cfd5f503f2b04a3b150e
   </select>
 </mapper>

@@ -7,23 +7,21 @@
    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-   <link href='./stylesheets/style.css' rel='stylesheet' >
 </head>
 
 <body>
    <div class='col-md-12'><!--상단바-->
       <p class="bg-primary" style="margin 0% 0% 0% 0%;"><B>CAMPUSBOOK</B></p>
-   </div>
-   
+   </div>   
    <div class='col-md-12'>
       <div class='col-md-3'>
          <div class="row">
             <div class="col-sm-10 col-md-12" >
                <div class="thumbnail" style='height:100%;'>
                   <div class="caption">
-                  <div class='col-md-12'>
+                  <div class='col-md-12'> 
                      <div class='col-md-7'>
-                        <img src='/resources/inuimg.jpg' style= 'width:100%; height:120px; margin:0px 0px 0px -20px;'>
+                        <img src='file:///C:/image/inuimg.JPG' style= 'width:100%; height:120px; margin:0px 0px 0px -20px;'>
                      </div>
                      <div class='col-md-5' style='margin:0px 0px 0px -20px;'>
                         </br></br></br>
