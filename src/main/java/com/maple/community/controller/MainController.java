@@ -31,16 +31,10 @@ public class MainController {
 	
 	@RequestMapping("/search_Friend")
 	public String search_Friend(SearchModel model){
-		System.out.println("설정한 sex = " + model.getSex());
-		System.out.println("설정한 major = " + model.getMajor());
-		for(String subject : model.getSubject())
-			System.out.println("설정한 subject = " + subject);
-		
-		
 		List<String> result =MemberService.searchFriend(model);
 		for(String result1 : result)
 			System.out.println(result1);
-		return "profile";
+		return "search";
 	}
 	
 	@RequestMapping("/profile")
