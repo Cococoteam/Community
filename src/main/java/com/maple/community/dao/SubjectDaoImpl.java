@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.maple.community.model.SubjectModel;
+import com.maple.community.model.Subject_board;
 
 @Repository
 public class SubjectDaoImpl implements SubjectDao{
@@ -22,7 +23,7 @@ public class SubjectDaoImpl implements SubjectDao{
 	}
 
 	@Override
-	public List<SubjectModel> selectSubject(String id) {
+	public List<Subject_board> selectSubject(String id) {
 		return sqlSession.selectList(NAMESPACE+"selectSubject", id);
 	}
 

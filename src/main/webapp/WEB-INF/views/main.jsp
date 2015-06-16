@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -16,10 +17,10 @@
     </div>
     
     <div class='col-md-12'>
-        <div class='col-md-3'>
+        <div class='col-md-3'style='height:100%;'>
             <div class="row">
                 <div class="col-sm-10 col-md-12" >
-                    <div class="thumbnail" style='height:100%;'>
+                    <div class="thumbnail" >
                         <div class="caption">
                         <div class='col-md-12'>
                             <div class='col-md-7'>
@@ -37,8 +38,11 @@
                                       게 시 판 <span class="caret"></span>
                                     </a>
                                     <ul class="dropdown-menu" role="menu" id="subjectArea">
+                                    <c:forEach items="${subject_List}" var="list">
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="/board/${list.subnum}">${list.subject}</a></li>
+                                    </c:forEach>
                                         <!-- <li role="presentation"><a role="menuitem" tabindex="-1" href="#">A</a></li>
-                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">B</a></li>
+                                        
                                         <li role="presentation"><a role="menuitem" tabindex="-1" href="#">C</a></li>
                                         <li role="presentation"><a role="menuitem" tabindex="-1" href="#">D</a></li> -->
                                     </ul>

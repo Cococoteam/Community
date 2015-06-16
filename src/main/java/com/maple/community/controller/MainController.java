@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartRequest;
@@ -37,8 +38,19 @@ public class MainController {
 		return "profile";
 	}
 
-	@RequestMapping("/board")
-	public String board(){
+	
+	//where 절에 subject 해당 db 갖고옴  
+	@RequestMapping("/board/{subject}")
+	public String board(@PathVariable int subject){
+		if(subject==1){
+			
+		}
+		else if(subject==2){
+			
+		}
+		else if(subject==3){
+			
+		}
 		return "board";
 	}
 	
@@ -49,12 +61,12 @@ public class MainController {
 		  String fileName = file.getOriginalFilename();
 		  String fileType = fileName.substring(fileName.lastIndexOf("."), fileName.length());
 		  String replaceName = cal.getTimeInMillis() + fileType;  //파일 이름의 중복을 막기 위해서 이름을 재설정합니다.
-		  String path = "C:/image/";   //제 바탕화면의 upload 폴더라는 경로입니다. 자신의 경로를 쓰세요.
-		  String imagePath = path+replaceName;
+		  String path = "C:/workspace/INUCommunity/src/main/webapp/resources/";   //제 바탕화면의 upload 폴더라는 경로입니다. 자신의 경로를 쓰세요.
+		  //String imagePath = path+replaceName;
 		  FileUpload.fileUpload(file, path, replaceName);
 		  model.setId((String) session.getAttribute("id"));
 		  model2.setId((String) session.getAttribute("id"));
-		  model.setImage(imagePath);
+		  model.setImage("/resources/"+replaceName);
 		  MemberService.updateMember(model);
 		  
 //		  System.out.println(imagePath);
@@ -69,11 +81,4 @@ public class MainController {
 		  return "modify";
 	}
 	
-	@RequestMapping("/search_subject")
-	public String search_subject(Model model, HttpSession session){
-		String id = (String) session.getAttribute("id");
-		List<SubjectModel> subject_List = SubjectService.selectSubject(id);
-		model.addAttribute("subject_List", subject_List);
-		return "search_subject";
-	}
 }
