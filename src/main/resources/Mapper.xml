@@ -22,4 +22,22 @@
     WHERE id = #{id}
     AND passwd = #{passwd}
   </select>
+  
+  <update id="updateMember" parameterType="member">
+    UPDATE members
+    SET email = #{email}, phone = #{phone}, birth = #{birth}, sex = #{sex}, image= #{image}, major = #{major}
+    WHERE id = #{id}
+  </update>
+  
+  <insert id="insertCourse" parameterType="subject">
+    INSERT INTO 
+    COURSE(id, subnum)
+    VALUES(#{id},#{subnum_origin})
+  </insert>
+  
+  <select id="searchFriend" resultType="String" parameterType="search">
+    SELECT id 
+    FROM members
+    WHERE sex=#{sex}
+  </select>
 </mapper>

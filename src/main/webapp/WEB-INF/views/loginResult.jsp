@@ -4,7 +4,7 @@
 
 <c:if test="${result}">
     <script>
-    alert("로그인에 성공하였습니다.");
+    alert("<%=session.getAttribute("username") %> 님 환영합니다 ^^.");
     location.href="/main";
     </script>
 </c:if>
