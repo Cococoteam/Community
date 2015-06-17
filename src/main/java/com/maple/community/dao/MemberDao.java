@@ -12,5 +12,7 @@ public interface MemberDao {
 	public int selectMemberById(String id);
 	public MemberModel selectMember(MemberModel model);
 	public void updateMember(MemberModel model);
+	public void updateMemberNull(String id);
+	public void deleteCourse(String id);
 
 }

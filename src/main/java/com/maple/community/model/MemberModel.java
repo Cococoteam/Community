@@ -1,5 +1,7 @@
 package com.maple.community.model;
 
+import java.util.List;
+
 import org.apache.ibatis.type.Alias;
 
 @Alias("member")
@@ -13,6 +15,7 @@ public class MemberModel {
 	private String sex;
 	private String birth;
 	private String major;
+	private List<SubjectModel> subjectList;
 	
 	public String getMajor() {
 		return major;

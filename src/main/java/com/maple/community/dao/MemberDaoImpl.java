@@ -44,6 +44,16 @@ public class MemberDaoImpl implements MemberDao{
 	public void updateMember(MemberModel model) {
 		sqlSession.update(NAMESPACE+"updateMember", model);
 	}
+
+	@Override
+	public void updateMemberNull(String id) {
+		sqlSession.update(NAMESPACE+"updateMemberNull",id);
+	}
+
+	@Override
+	public void deleteCourse(String id) {
+		sqlSession.delete(NAMESPACE+"deleteCourse",id);
+	}
 	
 
 

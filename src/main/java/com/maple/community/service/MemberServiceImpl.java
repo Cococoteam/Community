@@ -43,5 +43,15 @@ public class MemberServiceImpl implements MemberService {
 		memberdao.updateMember(model);
 	}
 
+	@Override
+	public void updateMemberNull(String id) {
+		memberdao.updateMemberNull(id);
+	}
+
+	@Override
+	public void deleteCourse(String id) {
+		memberdao.deleteCourse(id);
+	}
+
 	
 }

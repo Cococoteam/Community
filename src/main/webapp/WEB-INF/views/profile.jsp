@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -25,7 +26,7 @@
                         <div class="caption">
                         <div class='col-md-12'>
                             <div class='col-md-7'>
-                                <img src='/resources/inuimg.jpg' style= 'width:100%; height:120px; margin:0px 0px 0px -20px;'>
+                                <img src='<%=session.getAttribute("img") %>' style= 'width:100%; height:120px; margin:0px 0px 0px -20px;'>
                             </div>
                             <div class='col-md-5' style='margin:0px 0px 0px -20px;'>
                                 </br></br></br>
@@ -39,10 +40,9 @@
                                       게 시 판 <span class="caret"></span>
                                     </a>
                                     <ul class="dropdown-menu" role="menu">
-                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">A</a></li>
-                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">B</a></li>
-                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">C</a></li>
-                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">D</a></li>
+                                    <c:forEach items="${subject_List}" var="list">
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="/board/${list.subnum}">${list.subject}</a></li>
+                                    </c:forEach>
                                     </ul>
                                  </li></center>
                                 <center><li role="presentation" style='margin:20px 0px 0px 0px;'><a href="/search">친 구  찾 기</a></li></center>
@@ -140,6 +140,7 @@
                                  <div class="checkbox" style='margin: 10px 0px 0px 0px;'>
                                  <label>
                                     <input type="checkbox" name="subnum" id="optionsRadios1" value="1">
+                                    
                                        분산시스템
                                     </label>
                                  </div>
@@ -224,7 +225,8 @@
                         </div>
                         <div class='col-md-6'>
                             <button type="submit" class="btn btn-primary" style='width: 49%; margin:20px 0px 0px 0px;'>수정</button>
-                            <button type="button" class="btn btn-default" style='width: 49%; margin:20px 0px 0px 0px;'>취소</button></br>
+                            <button type="button" class="btn btn-default" style='width: 49%; margin:20px 0px 0px 0px;' 
+                            href="main">취소</button></br>
                         </div>
                     </div>
                 </div>

@@ -5,7 +5,6 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html"; charset=utf-8">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link href='./stylesheets/style.css' rel='stylesheet' >
 </head>
 
 <body>

@@ -15,3 +15,19 @@ $('#search_subject').click(function(){
 	
 	
 })
+
+$('#write').click(function(){
+	$.ajax({
+		type:"GET",							// GET or POST
+		url:"/writeBoard",						// URL
+		datatype:"xml",						// html, xml, json, jsonp, script, text
+		data:{keyword:$('#content').val()},			// parameters as plain object
+		error:function() {						// Ajax error handler
+			alert('ajax failed');
+		},
+		success:function(data, status) {	// Ajax complete handelr
+			$('#boardResultArea').fadeOut();
+			$('#boardResultArea').empty().append(data);
+		}
+	});
+})

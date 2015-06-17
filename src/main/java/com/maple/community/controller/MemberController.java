@@ -27,8 +27,6 @@ public class MemberController {
 	private MemberServiceImpl memberservice;
 	@Autowired
 	private SubjectServiceImpl subjectservice;
-	private static final Logger logger = LoggerFactory
-			.getLogger(MemberController.class);
 
 	/**
 	 * Simply selects the home view to render by returning its name.

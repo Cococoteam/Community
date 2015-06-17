@@ -9,5 +9,7 @@ public interface MemberService {
 	public int selectMemberById(String id);
 	public MemberModel login(MemberModel model);
 	public void updateMember(MemberModel model);
+	public void updateMemberNull(String id);
+	public void deleteCourse(String id);
 	
 }

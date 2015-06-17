@@ -16,6 +16,7 @@ import org.springframework.web.multipart.MultipartRequest;
 
 import com.maple.community.model.MemberModel;
 import com.maple.community.model.SubjectModel;
+import com.maple.community.model.Subject_board;
 import com.maple.community.service.MemberServiceImpl;
 import com.maple.community.service.SubjectServiceImpl;
 
@@ -27,32 +28,27 @@ public class MainController {
 	
 	@Autowired
 	private SubjectServiceImpl SubjectService;
+
 	
 	@RequestMapping("/search")
-	public String search(){
+	public String search(HttpSession session,Model model){
+		String id = (String) session.getAttribute("id");
+		List<Subject_board> subject_List = SubjectService.selectSubject(id);
+		model.addAttribute("subject_List",subject_List);
+		
 		return "search";
 	}
 	
 	@RequestMapping("/profile")
-	public String profile(){
+	public String profile(HttpSession session,Model model){
+		String id = (String) session.getAttribute("id");
+		List<Subject_board> subject_List = SubjectService.selectSubject(id);
+		model.addAttribute("subject_List",subject_List);
 		return "profile";
 	}
 
 	
-	//where 절에 subject 해당 db 갖고옴  
-	@RequestMapping("/board/{subject}")
-	public String board(@PathVariable int subject){
-		if(subject==1){
-			
-		}
-		else if(subject==2){
-			
-		}
-		else if(subject==3){
-			
-		}
-		return "board";
-	}
+	
 	
 	@RequestMapping("/modify")
 	public String modify(MemberModel model, HttpSession session, Model model1, MultipartRequest multipartRequest,SubjectModel model2) throws IOException{
@@ -72,8 +68,7 @@ public class MainController {
 //		  System.out.println(imagePath);
 //		  System.out.println(model2.getId());
 //		  System.out.println(model.getId());
-		  
-		  //TODO insert 전에 모든 자료 삭제 하기
+		  MemberService.deleteCourse(model.getId()); //전에 모든 자료 삭제
 		  for(int i: model2.getSubnum()){
 			  model2.setSubnum_origin(i);
 			  SubjectService.insertCourse(model2);

@@ -39,6 +39,28 @@
     SELECT c.id, s.subject ,s.subnum
     FROM course c, subject s 
     WHERE c.subnum = s.subnum and c.id=#{id}
-  
   </select>
+  
+  <delete id="deleteCourse" parameterType="String">
+    DELETE FROM webprograming.course 
+    WHERE id='root'
+  </delete>
+  
+  <select id="selectBoard" parameterType="int" resultType="board">
+    SELECT *
+    FROM board
+    WHERE subnum = #{subnum}
+  </select>
+  
+  <select id="selectlecture" parameterType="int" resultType="lecture">
+    SELECT *
+    FROM subject
+    WHERE subnum = #{subnum}
+  </select>
+  
+  <insert id="insertBoard" parameterType="board">
+    INSERT INTO
+    BOARD(subnum, content, id)
+    VALUE(#{subnum},#{content},#{id})
+  </insert>
 </mapper>

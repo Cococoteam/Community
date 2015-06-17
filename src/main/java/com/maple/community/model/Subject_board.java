@@ -6,6 +6,7 @@ import org.apache.ibatis.type.Alias;
 public class Subject_board {
 	private String subject;
 	private String subnum;
+
 	
 	
 	public String getSubject() {

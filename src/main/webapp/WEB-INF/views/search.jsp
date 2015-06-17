@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -21,7 +22,7 @@
                   <div class="caption">
                   <div class='col-md-12'> 
                      <div class='col-md-7'>
-                        <img src='file:///C:/image/inuimg.JPG' style= 'width:100%; height:120px; margin:0px 0px 0px -20px;'>
+                        <img src='<%=session.getAttribute("img") %>' style= 'width:100%; height:120px; margin:0px 0px 0px -20px;'>
                      </div>
                      <div class='col-md-5' style='margin:0px 0px 0px -20px;'>
                         </br></br></br>
@@ -35,10 +36,9 @@
                              게 시 판 <span class="caret"></span>
                            </a>
                            <ul class="dropdown-menu" role="menu">
-                              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">A</a></li>
-                              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">B</a></li>
-                              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">C</a></li>
-                              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">D</a></li>
+                              <c:forEach items="${subject_List}" var="list">
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="/board/${list.subnum}">${list.subject}</a></li>
+                              </c:forEach>
                            </ul>
                          </li></center>
                         <li role="presentation" class="active" style='margin:20px 0px 0px 0px;'><a href="/search"><center>친 구  찾 기</center></a></li>
@@ -115,30 +115,16 @@
                         <div class="panel panel-default">
                            <div class="panel-heading">강의</div>
                            <div class="panel-body">
+                           
+                           <c:forEach items="${subject_List}" var="list">
                               <div class="checkbox" style='margin: 10px 0px 0px 0px;'>
                                  <label>
-                                 <input type="checkbox" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-                                 A
+                                 <input type="checkbox" name="optionsRadios" id="optionsRadios1" value="${list.subnum}">${list.subject}
                                  </label>
                               </div>
-                              <div class="checkbox" style='margin: 10px 0px 0px 0px;'>
-                                 <label>
-                                 <input type="checkbox" name="optionsRadios" id="optionsRadios2" value="option2">
-                                 B
-                                 </label>
-                              </div>
-                              <div class="checkbox" style='margin: 10px 0px 0px 0px;'>
-                                 <label>
-                                 <input type="checkbox" name="optionsRadios" id="optionsRadios2" value="option2">
-                                 C
-                                 </label>
-                              </div>
-                              <div class="checkbox" style='margin: 10px 0px 0px 0px;'>
-                                 <label>
-                                 <input type="checkbox" name="optionsRadios" id="optionsRadios2" value="option2">
-                                 D
-                                 </label>
-                              </div>
+                           </c:forEach>
+                           
+                          
                            </div>
                         </div>
                         <button type="button" class="btn btn-primary" style='width:100%; margin: 2px 0px 0px 0px;'>찾기</button>

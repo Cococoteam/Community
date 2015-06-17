@@ -24,7 +24,7 @@
                         <div class="caption">
                         <div class='col-md-12'>
                             <div class='col-md-7'>
-                                <img src='<%=session.getAttribute("img") %>' style='width:100%; height:120px; margin:0px 0px 0px -20px;'>
+                                <img src='<%=session.getAttribute("img") %>' style='width:100%; height:120px; margin:0px 0px 0px -20px;'class="img-rounded">
                             </div>
                             <div class='col-md-5' style='margin:0px 0px 0px -20px;'>
                                 </br></br></br>
