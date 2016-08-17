@@ -1,9 +1,14 @@
 package com.maple.community.service;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.maple.community.dao.MemberDao;
+import com.maple.community.model.FriendModel;
 import com.maple.community.model.MemberModel;
+import com.maple.community.model.SearchModel;
+import com.maple.community.model.Search_FriendModel;
 
 
 @Service
@@ -53,5 +58,56 @@ public class MemberServiceImpl implements MemberService {
 		memberdao.deleteCourse(id);
 	}
 
-	
+
+	@Override
+	public List<MemberModel> selectFriend(Search_FriendModel model) {
+		if(model.getMajor().equals("NO")){
+			if(model.getSex().equals("NO")){
+				return memberdao.selectFriendNo(model);
+			}
+			else{
+				return memberdao.selectFriendNormajor(model);
+			}
+		}
+		else if(model.getSex().equals("NO"))
+			return memberdao.selectFriendNosex(model);
+		else
+			return memberdao.selectFriend(model);
+	}
+
+	@Override
+	public void addFriendIng(FriendModel model) {
+		memberdao.addFriendIng(model);
+		
+	}
+
+	@Override
+	public List<MemberModel> fri_list_ready(String id) {
+		return memberdao.fri_list_ready(id);
+	}
+
+	@Override
+	public void deleteFriend(String id) {
+		memberdao.deleteFriend(id);
+	}
+
+	@Override
+	public void addFriend(FriendModel model) {
+		memberdao.addFriend(model);
+		String temp;
+		temp =model.getId();
+		model.setId(model.getFriend());
+		model.setFriend(temp);
+		memberdao.addFriend(model);
+	}
+
+	@Override
+	public List<MemberModel> select_fri_list(String id) {
+		return memberdao.select_fri_list(id);
+	}
+
+	@Override
+	public MemberModel selectName(String id) {
+		return memberdao.selectName(id);
+	}
 }

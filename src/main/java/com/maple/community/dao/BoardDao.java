@@ -30,5 +30,7 @@ public class BoardDao {
 	public void insertBoard(BoardModel model){
 		sqlSession.insert(NAMESPACE+"insertBoard", model);
 	}
+	
+	
 
 }

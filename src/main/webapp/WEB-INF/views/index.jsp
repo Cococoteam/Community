@@ -5,18 +5,26 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html"; charset=utf-8">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <style>
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+body{background-color:#EAEAEA; font-family: 'Nanum Gothic', sans-serif; }
+</style>
 </head>
 
 <body>
     <script src="http://code.jquery.com/jquery.js"></script>
     <div class='col-md-12'><!--상단바-->
-        <p class="bg-primary" style="margin 0% -20% 0% -20%;">CAMPUSBOOK</p>
+       <p class="bg-primary" style="margin 0% 0% 0% 0%;">
+      <img src='/resources/navbar.jpg' style="width:66px; height:35px; margin:3px 10px 3px 5px;">
+		<B>CAMPUSBOOK</B>
+   </p>
     </div>
-    
-    <div class='col-md-12'>
+    <div class='col-md-2'>
+		</div>
+    <div class='col-md-8'>
         <div class='col-md-7'><!--그림사진-->
             <center>
-                <img src='/resources/inuimg.jpg' style='height:170px; margin:110px 0px 0px 0px;'>
+                <img src='/resources/inumain.jpg' style='height:170px; margin:110px 0px 0px 0px;'>
                 </br></br></br></br></br>
                 <p style="font-size:20px;font-family:TD씨_씨고딕">인천대학교 Campusbook에 오신것을 환영합니다.</p>
                 <p style="font-size:20px;font-family:씨고딕">Campusbook에서 나와 같은 수업을 듣는 친구들을 만나보세요.</p>
@@ -52,6 +60,8 @@
             </form>
         </div>
     </div>
+	<div class='col-md-2'>
+		</div>
 
 
     <script>

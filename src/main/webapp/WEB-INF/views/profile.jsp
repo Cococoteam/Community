@@ -7,18 +7,30 @@
 <meta http-equiv="Content-Type" content="text/html"; charset=utf-8">
 
 
-    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-    <!-- <link href='./stylesheets/style.css' rel='stylesheet' > -->
+<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<!-- 합쳐지고 최소화된 최신 CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<!-- 부가적인 테마 -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <style>
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+body{background-color:#EAEAEA; font-family: 'Nanum Gothic', sans-serif; }
+</style>
 </head>
 
 <body>
     <div class='col-md-12'><!--상단바-->
-        <p class="bg-primary" style="margin 0% 0% 0% 0%;"><B>CAMPUSBOOK</B></p>
+        <p class="bg-primary" style="margin 0% 0% 0% 0%;">
+      <img src='/resources/navbar.jpg' style="width:66px; height:35px; margin:3px 10px 3px 5px;">
+		<B>CAMPUSBOOK</B>
+		<td align=right><button type="button" class="btn btn-primary" style='margin: 0px 0px 0px 1550px;' id="logout" name="logout">LOGOUT</button></td>
+   </p>
     </div>
-    
-    <div class='col-md-12'>
+    <div class='col-md-2'>
+		</div>
+    <div class='col-md-8'>
         <div class='col-md-3'>
             <div class="row">
                 <div class="col-sm-10 col-md-12" >
@@ -26,11 +38,11 @@
                         <div class="caption">
                         <div class='col-md-12'>
                             <div class='col-md-7'>
-                                <img src='<%=session.getAttribute("img") %>' style= 'width:100%; height:120px; margin:0px 0px 0px -20px;'>
+                                <img src='<%=session.getAttribute("img") %>' style= 'width:100%; height:120px; margin:0px 0px 0px -20px;' class="img-rounded">
                             </div>
                             <div class='col-md-5' style='margin:0px 0px 0px -20px;'>
                                 </br></br></br>
-                                <h4><B><%=session.getAttribute("username") %></B></h4>
+                                <a href="/main"><h4><B><%=session.getAttribute("username")%></B></h4></a>
                             </div>
                         </div>
                             <ul class="nav nav-pills nav-stacked" >
@@ -46,8 +58,8 @@
                                     </ul>
                                  </li></center>
                                 <center><li role="presentation" style='margin:20px 0px 0px 0px;'><a href="/search">친 구  찾 기</a></li></center>
-                                <center><li role="presentation" style='margin:20px 0px 0px 0px;'><a href="#">친 구  요 청</a></li></center>
-                                <center><li role="presentation" style='margin:20px 0px 0px 0px;'><a href="#">메 세 지</a></li></center>
+                                <center><li role="presentation" style='margin:20px 0px 0px 0px;'><a href="/friend">친 구  목 록</a></li></center>
+                                <center><li role="presentation" style='margin:20px 0px 0px 0px;'><a href="/message">메 세 지</a></li></center>
                                 <li role="presentation" class="active" style='margin:20px 0px 0px 0px;' ><a href="/profile"><center>환 경 설 정</center></a></li>
                             </ul>
                         </div>
@@ -56,16 +68,24 @@
             </div>
         </div>
         <div class='col-md-9'>
+		<div class="row">
+						<div class="col-sm-10 col-md-12" >
+							<div class="thumbnail" style='margin: 0px 0px -3px 0px;'>
             <ul class="nav nav-tabs nav-justified">
                 <li role="presentation" ><a href="/search"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a></li>
-                <li role="presentation" ><a href="#"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a></li>
-                <li role="presentation" ><a href="#"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span></a></li>
+                <li role="presentation" ><a href="/friend"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a></li>
+                <li role="presentation" ><a href="/message"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span></a></li>
                 <li role="presentation" class="active"><a href="/profile"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a></li>
             </ul>
+			</div>
+					   </div>
+					</div>
         </div>
         <div class='col-md-9'> <!--고정틀말고-->
         <form action = "/modify" method ="post" enctype="multipart/form-data">
-            <div class='col-md-12'>
+		<div class="panel panel-default" style='margin: 10px 0px 0px 0px;'>
+            <div class="panel-body" style='height:95%;'>
+			<div class='col-md-12'>
                 <div class='col-md-5'>
                     <img src='/resources/inuimg.jpg' style='height:45%; width:100%; margin:60px 0px 0px 0px;'>
                   <input type=file name='upload' style='display: none;'> 
@@ -225,17 +245,24 @@
                         </div>
                         <div class='col-md-6'>
                             <button type="submit" class="btn btn-primary" style='width: 49%; margin:20px 0px 0px 0px;'>수정</button>
-                            <button type="button" class="btn btn-default" style='width: 49%; margin:20px 0px 0px 0px;' 
+                            <button type="button" class="btn btn-default" style='width: 48%; margin:20px 0px 0px 0px;' 
                             href="main">취소</button></br>
                         </div>
                     </div>
                 </div>
             </div>
+			</div>
         </form>
         </div>
     </div>
+	<div class='col-md-2'>
+		</div>
 
 </body>
 <script>
+$("#logout").click(function(){
+	alert("이용해주셔서 감사합니다.")
+	location.href= "/logout"
+})
 </script>
 </html>

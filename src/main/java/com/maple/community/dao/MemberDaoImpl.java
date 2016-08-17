@@ -1,10 +1,15 @@
 package com.maple.community.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.maple.community.model.FriendModel;
 import com.maple.community.model.MemberModel;
+import com.maple.community.model.SearchModel;
+import com.maple.community.model.Search_FriendModel;
 //DAO(Data Access Object)
 //데이터베이스와 연동해서 데이터를 가져오거나 입력수정
 //component-scan 자동 자바빈즈 생성(Repository)
@@ -54,7 +59,54 @@ public class MemberDaoImpl implements MemberDao{
 	public void deleteCourse(String id) {
 		sqlSession.delete(NAMESPACE+"deleteCourse",id);
 	}
+
+	@Override
+	public List<MemberModel> selectFriend(Search_FriendModel model) {
+		return sqlSession.selectList(NAMESPACE+"selectFriend", model);
+	}
 	
+	@Override
+	public List<MemberModel> selectFriendNormajor(Search_FriendModel model) {
+		return sqlSession.selectList(NAMESPACE+"selectFriendNormajor", model);
+	}
 
+	@Override
+	public void addFriendIng(FriendModel model) {
+		sqlSession.insert(NAMESPACE+"addFriendIng", model);
+	}
 
+	@Override
+	public List<MemberModel> selectFriendNosex(Search_FriendModel model) {
+		return sqlSession.selectList(NAMESPACE+"selectFriendNosex", model);
+	}
+
+	@Override
+	public List<MemberModel> selectFriendNo(Search_FriendModel model) {
+		return sqlSession.selectList(NAMESPACE+"selectFriendNo", model);
+	}
+
+	@Override
+	public List<MemberModel> fri_list_ready(String id) {
+		return sqlSession.selectList(NAMESPACE+"fri_list_ready", id);
+	}
+
+	@Override
+	public void deleteFriend(String id) {
+		sqlSession.delete(NAMESPACE+"deleteFriend", id);
+	}
+
+	@Override
+	public void addFriend(FriendModel model) {
+		sqlSession.insert(NAMESPACE+"addFriend", model);
+	}
+
+	@Override
+	public List<MemberModel> select_fri_list(String id) {
+		return sqlSession.selectList(NAMESPACE+"select_fri_list", id);
+	}
+
+	@Override
+	public MemberModel selectName(String id) {
+		return sqlSession.selectOne(NAMESPACE+"selectName", id);
+	}
 }

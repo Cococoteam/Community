@@ -46,8 +46,13 @@ public class BoardController {
 			//board에 게시판 내용 뿌려주기위해 모델담기
 			model.addAttribute("board_List", boardModel);
 			
+			//subject_professor 객체로 모델에 담아서 정보 뿌려주는거 물어보기
 			Subject_Professor lectureInfo = boardService.selectlecture(subject);
-			model.addAttribute("lecture_Info", lectureInfo);
+			model.addAttribute("lecture_subject", lectureInfo.getSubject());
+			model.addAttribute("lecture_professor", lectureInfo.getProfessor());
+			model.addAttribute("lecture_time", lectureInfo.getTime());
+			model.addAttribute("lecture_intro", lectureInfo.getIntro());
+			model.addAttribute("lecture_image",lectureInfo.getImage());
 			System.out.println(lectureInfo.getProfessor()+lectureInfo.getIntro());
 			return "board";
 		}
@@ -64,6 +69,12 @@ public class BoardController {
 			model.addAttribute("board_List",boardModel);
 			
 			return "writeboard";
+			
+		}
+		
+		@RequestMapping("/timeTable")
+		public String timeTalbe(){
+			return "timetable";
 			
 		}
 }

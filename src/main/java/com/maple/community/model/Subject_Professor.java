@@ -10,8 +10,15 @@ public class Subject_Professor {
 	private String professor;
 	private String time;
 	private String intro;
+	private String image;
 	
 	
+	public String getImage() {
+		return image;
+	}
+	public void setImage(String image) {
+		this.image = image;
+	}
 	public int getSubnum() {
 		return subnum;
 	}

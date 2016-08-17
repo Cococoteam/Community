@@ -5,27 +5,34 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; utf-8">
 <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-<link rel="stylesheet"
-	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-<link href='./stylesheets/style.css' rel='stylesheet'>
-<script type="text/javascript"></script>
+<!-- 합쳐지고 최소화된 최신 CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<!-- 부가적인 테마 -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<style>
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+body{background-color:#EAEAEA; font-family: 'Nanum Gothic', sans-serif; }
+</style>
 </head>
 
 <body>
 	<div class='col-md-12'>
 		<!--상단바-->
-		<p class="bg-primary" style="">
-			<B>CAMPUSBOOK</B>
+		<p class="bg-primary" style="margin 0% 0% 0% 0%;">
+      <img src='/resources/navbar.jpg' style="width:66px; height:35px; margin:3px 10px 3px 5px;">
+		<B>CAMPUSBOOK</B>
+		<td align=right><button type="button" class="btn btn-primary" style='margin: 0px 0px 0px 1550px;'id="logout" name="logout">LOGOUT</button></td>
 		</p>
 	</div>
-
-	<div class='col-md-12'>
+		<div class='col-md-2'>
+		</div>
+	<div class='col-md-8'>
 		<div class='col-md-3'>
 			<div class="row">
 				<div class="col-sm-10 col-md-12">
-					<div class="thumbnail" style='height: 100%;'>
+					<div class="thumbnail" >
 						<div class="caption">
 							<div class='col-md-12'>
 								<div class='col-md-7'>
@@ -34,7 +41,7 @@
 								</div>
 								<div class='col-md-5' style='margin: 0px 0px 0px -20px;'>
 									</br> </br> </br>
-									<h3><%=session.getAttribute("username")%></h3>
+									<a href="/main"><h4><B><%=session.getAttribute("username")%></B></h4></a>
 								</div>
 							</div>
 							<ul class="nav nav-pills nav-stacked">
@@ -61,11 +68,11 @@
 								</center>
 								<center>
 									<li role="presentation" style='margin: 20px 0px 0px 0px;'><a
-										href="#">친 구 요 청</a></li>
+										href="/friend">친 구  목 록</a></li>
 								</center>
 								<center>
 									<li role="presentation" style='margin: 20px 0px 0px 0px;'><a
-										href="#">메 세 지</a></li>
+										href="/message">메 세 지</a></li>
 								</center>
 								<center>
 									<li role="presentation" style='margin: 20px 0px 0px 0px;'><a
@@ -78,39 +85,49 @@
 			</div>
 		</div>
 		<div class='col-md-9'>
+			<div class="row">
+				<div class="col-sm-10 col-md-12" >
+					<div class="thumbnail" style='margin: 0px 0px -3px 0px;'>
 			<ul class="nav nav-tabs nav-justified">
 				<li role="presentation"><a href="/search"><span
 						class="glyphicon glyphicon-search" aria-hidden="true"></span></a></li>
-				<li role="presentation"><a href="#"><span
+				<li role="presentation"><a href="/friend"><span
 						class="glyphicon glyphicon-user" aria-hidden="true"></span></a></li>
-				<li role="presentation"><a href="#"><span
+				<li role="presentation"><a href="/message"><span
 						class="glyphicon glyphicon-comment" aria-hidden="true"></span></a></li>
 				<li role="presentation"><a href="/profile"><span
 						class="glyphicon glyphicon-cog" aria-hidden="true"></span></a></li>
 			</ul>
+			 </div>
+			</div>
+		</div>
 		</div>
 		<div class='col-md-9'>
 			<!--고정틀말고-->
 			<div class="panel panel-default" style='margin: 10px 0px 0px 0px;'>
 				<div class="panel-heading">
-					<h3>과목 게시판</h3>
-					<table class="table">
-						<tr>
-							<td>과목</td>
-							<td>교수님</td>
-							<td>시간</td>
-							<td>강의 개요</td>
-						</tr>
-						<!-- 강의 정보 뿌려주기 -->
-						<tr>
-							<td></td>
-							<td>${lecture.professor}</td>
-							<td>${lecture.time}</td>
-							<td>${lecture.intro}</td>
-						</tr>
-					</table>
-				</div>
-				<div class="panel-body" style='height: 100%;'>
+                     <h1><strong><mark>${lecture_subject}</mark></strong></h1>
+                     <table width="100%">
+                       <tbody>
+                        <td>
+                          <h4><strong>교수님</strong></h4>
+                           ${lecture_professor}
+                        </td>
+                        <td>
+                          <h4><strong>시간</strong></h4>
+                           ${lecture_time}
+                        </td>
+                        <td>
+                          <h4><strong>강의 개요</strong></h4>
+                           ${lecture_intro}
+                        </td>
+                        <td>
+                          <img src= "${lecture_image}" style="width:66px; height:70px;">
+                        </td>
+                       </tbody>
+                     </table>
+            </div>
+				<div class="panel-body" style='height: 65%;'>
 					<div style='margin: 3px 0px 0px 0px;'>
 						<form>
 							<div class="input-group">
@@ -142,6 +159,8 @@
 			</div>
 		</div>
 	</div>
+	<div class='col-md-2'>
+		</div>
 </body>
 <script>
 	$('#write').click(function() {
@@ -157,6 +176,10 @@
 				$('#boardResultArea').empty().append(data);
 			}
 		});
+	})
+	$("#logout").click(function(){
+		alert("이용해주셔서 감사합니다.")
+		location.href= "/logout"
 	})
 </script>
 </html>
